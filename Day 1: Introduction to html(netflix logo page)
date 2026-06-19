@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Website</title>
+        <style>
+            body {
+                background:linear-gradient(to right, darkred, black, darkred, black, darkred); 
+                
+                text-align: center;
+                font-family: Times New Roman, sans-serif;
+            }
+            h1 {
+                font-size: 68px;
+                margin-top: 50px;
+                font size: 100px;
+                font-family: Times New Roman, sans-serif;
+                font style: italic;
+                z index: 1;
+            }
+            img {
+                margin-top: 20px;
+                border-radius: 10px;
+            }
+            h6 {
+                margin-top: 40px;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>N E T F L I X</h1>
+        <img src="https://logos-world.net/wp-content/uploads/2020/04/Netflix-Emblem.jpg" alt="Netflix Logo" width="300">
+        <h6>Movies@netflix.com</h6>
+        
+
+
+    </body>
+
+</html>
