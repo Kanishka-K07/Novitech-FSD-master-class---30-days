@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Unlocked | Photography</title>
+    <style>
+        :root {
+            --bg: #070b14;
+            --surface: rgba(6, 11, 28, 0.88);
+            --surface-strong: rgba(10, 16, 40, 0.95);
+            --accent: #f0c040;
+            --accent-soft: rgba(240, 192, 64, 0.16);
+            --text: #f5f6fb;
+            --muted: #a1accf;
+            --radius: 28px;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: radial-gradient(circle at top left, rgba(240, 192, 64, 0.16), transparent 18%),
+                        linear-gradient(180deg, #04070f 0%, #090f1f 100%);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            width: 100%;
+            background: rgba(7, 11, 20, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 18px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .brand span {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: rgba(240, 192, 64, 0.16);
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 120px 32px 80px;
+        }
+
+        .hero-grid {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-copy {
+            display: grid;
+            gap: 20px;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            font-size: 0.78rem;
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(3rem, 5vw, 5.2rem);
+            line-height: 0.95;
+            max-width: 10ch;
+        }
+
+        .hero-copy p {
+            color: var(--muted);
+            font-size: 1rem;
+            max-width: 610px;
+            line-height: 1.85;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn,
+        .btn-secondary {
+            padding: 16px 28px;
+            border-radius: 999px;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #f0c040, #ffad34);
+            color: #08101f;
+            box-shadow: 0 16px 36px rgba(240, 192, 64, 0.18);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .btn:hover,
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 520px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: linear-gradient(180deg, rgba(255,255,255,0.06), transparent 32%),
+                        radial-gradient(circle at top right, rgba(240, 192, 64, 0.22), transparent 0%),
+                        #0b1220;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.05);
+            transition: transform 1.4s ease;
+        }
+
+        .hero-visual:hover img {
+            transform: scale(1.12);
+        }
+
+        .hero-highlights {
+            position: absolute;
+            bottom: 26px;
+            left: 24px;
+            right: 24px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            backdrop-filter: blur(18px);
+            background: rgba(4, 7, 17, 0.72);
+            border-radius: 24px;
+            padding: 18px;
+        }
+
+        .highlight-card {
+            display: grid;
+            gap: 6px;
+            color: #d6d9ec;
+        }
+
+        .highlight-card strong {
+            color: var(--text);
+            display: block;
+            font-size: 1.05rem;
+        }
+
+        .section {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 100px 32px;
+        }
+
+        .section-title {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 42px;
+        }
+
+        .section-title span {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.26em;
+            color: var(--accent);
+            font-size: 0.78rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            line-height: 1.05;
+        }
+
+        .section-intro {
+            color: var(--muted);
+            max-width: 680px;
+            line-height: 1.85;
+        }
+
+        .about-grid,
+        .work-grid,
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .about-copy {
+            display: grid;
+            gap: 24px;
+        }
+
+        .feature-card,
+        .service-card,
+        .project-card,
+        .contact-card {
+            background: var(--surface-strong);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow);
+            transition: transform 0.35s ease, border-color 0.35s ease;
+        }
+
+        .feature-card:hover,
+        .service-card:hover,
+        .project-card:hover,
+        .contact-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(240, 192, 64, 0.24);
+        }
+
+        .feature-card h3,
+        .service-card h3,
+        .project-card h3,
+        .contact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p,
+        .service-card p,
+        .about-copy p,
+        .contact-card p {
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .stat-box strong {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 999px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: rgba(240, 192, 64, 0.14);
+            border-color: rgba(240, 192, 64, 0.35);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+            display: block;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-copy {
+            padding: 24px;
+        }
+
+        .project-copy p {
+            margin-top: 10px;
+        }
+
+        .contact-grid {
+            grid-template-columns: 1.1fr 0.9fr;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 18px;
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form label {
+            display: grid;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            resize: vertical;
+            min-height: 48px;
+        }
+
+        .contact-form textarea {
+            min-height: 160px;
+        }
+
+        .contact-form button {
+            width: fit-content;
+            padding: 16px 28px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, #f0c040, #ffad34);
+            color: #08101f;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 18px;
+        }
+
+        .detail-pill {
+            display: grid;
+            gap: 12px;
+            padding: 26px;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .detail-pill strong {
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .detail-pill span {
+            color: var(--muted);
+        }
+
+        .footer {
+            padding: 32px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.85s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .contact-grid,
+            .about-grid,
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                min-height: 420px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                inset: 80px 24px auto auto;
+                width: calc(100vw - 48px);
+                max-width: 320px;
+                flex-direction: column;
+                padding: 22px;
+                border-radius: 24px;
+                background: rgba(6, 11, 28, 0.98);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: var(--shadow);
+                transform: translateX(110%);
+                transition: transform 0.35s ease;
+            }
+
+            .nav-links.open {
+                transform: translateX(0);
+            }
+
+            .menu-toggle {
+                display: grid;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .nav-inner {
+                padding: 18px;
+            }
+
+            .hero {
+                padding: 120px 20px 64px;
+            }
+
+            .site-header {
+                border: none;
+            }
+
+            .hero-visual {
+                border-radius: 24px;
+            }
+
+            .section {
+                padding: 72px 20px;
+            }
+
+            .project-card img {
+                height: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-inner">
+            <a class="brand" href="#home"><span>V</span>Vision Unlocked</a>
+            <button class="menu-toggle" aria-label="Open menu">☰</button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#explore">Explore</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-grid">
+                <div class="hero-copy reveal">
+                    <span class="eyebrow">Commercial Photography</span>
+                    <h1>Capture your next story with Vision Unlocked.</h1>
+                    <p>We create bold imagery for brands, weddings, campaigns, and creative journeys. Every frame is designed to feel cinematic, modern, and unforgettable.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn">Book a session</a>
+                        <a href="#explore" class="btn-secondary">Explore portfolio</a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal">
+                    <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=1400&q=80" alt="Photography hero image">
+                    <div class="hero-highlights">
+                        <div class="highlight-card">
+                            <strong>150+</strong>
+                            <span>Completed sessions</span>
+                        </div>
+                        <div class="highlight-card">
+                            <strong>8 years</strong>
+                            <span>Commercial experience</span>
+                        </div>
+                        <div class="highlight-card">
+                            <strong>Worldwide</strong>
+                            <span>Locations served</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="section-title reveal">
+                <span>About Vision Unlocked</span>
+                <h2>Photography that unlocks emotion and momentum.</h2>
+                <p class="section-intro">When you work with Vision Unlocked, you get a photography partner who understands light, mood, and brand voice. Our sessions turn products, portraits, and events into compelling visual stories that convert.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-copy reveal">
+                    <div class="feature-card">
+                        <h3>Brand-led imagery</h3>
+                        <p>From launch campaigns to product catalogues, we create visuals that match your identity and create memorable impressions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>On-location expertise</h3>
+                        <p>Whether it is studio lighting or natural environments, we deliver polished visuals with effortless direction and fast turnaround.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Personalized sessions</h3>
+                        <p>Every shoot begins with a discovery conversation. That means more aligned concepts, stronger briefs, and images that feel true to you.</p>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <strong>94%</strong>
+                            <span>Repeat clients</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>3-day</strong>
+                            <span>Express delivery</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>24/7</strong>
+                            <span>Creative support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="work">
+            <div class="section-title reveal">
+                <span>What we shoot</span>
+                <h2>Services crafted for modern businesses.</h2>
+                <p class="section-intro">A complete photography offering for product launches, editorial stories, brand campaigns, and unforgettable personal moments.</p>
+            </div>
+            <div class="work-grid">
+                <div class="service-card reveal">
+                    <h3>Commercial campaigns</h3>
+                    <p>Full creative direction for promotional photography, lifestyle shoots, and product storytelling that highlights your strengths.</p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Brand portraiture</h3>
+                    <p>Executive portraits, team galleries, and personal branding sessions designed to reflect confidence, style, and authenticity.</p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Event coverage</h3>
+                    <p>From grand openings to product launches, we capture the atmosphere, detail, and energy of your most important moments.</p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Creative storytelling</h3>
+                    <p>Visual narratives for artists, designers, and boutiques that use mood, color, and composition to engage audiences.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="explore">
+            <div class="section-title reveal">
+                <span>Work showcase</span>
+                <h2>Explore the latest collections.</h2>
+                <p class="section-intro">Browse curated photography from fashion, product, editorial, and destination shoots that reflect careful composition and premium polish.</p>
+            </div>
+            <div class="reveal">
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="fashion">Fashion</button>
+                    <button class="filter-btn" data-filter="product">Product</button>
+                    <button class="filter-btn" data-filter="editorial">Editorial</button>
+                </div>
+            </div>
+            <div class="gallery-grid">
+                <article class="project-card reveal" data-category="fashion">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80" alt="Fashion photography">
+                    <div class="project-copy">
+                        <h3>Bold Fashion Frames</h3>
+                        <p>High-contrast imagery crafted for seasonal lookbooks and social campaigns.</p>
+                    </div>
+                </article>
+                <article class="project-card reveal" data-category="product">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=80" alt="Product photography">
+                    <div class="project-copy">
+                        <h3>Premium Product Styling</h3>
+                        <p>Elevated product shots that showcase craftsmanship and luxury detail.</p>
+                    </div>
+                </article>
+                <article class="project-card reveal" data-category="editorial">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80" alt="Editorial photography">
+                    <div class="project-copy">
+                        <h3>Editorial Storytelling</h3>
+                        <p>Rich narratives built with emotive lighting and timeless composition.</p>
+                    </div>
+                </article>
+                <article class="project-card reveal" data-category="product">
+                    <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1200&q=80" alt="Product showcase">
+                    <div class="project-copy">
+                        <h3>Minimal Product Stories</h3>
+                        <p>Clean visuals designed for catalogs, web shops, and luxury merchandising.</p>
+                    </div>
+                </article>
+                <article class="project-card reveal" data-category="fashion">
+                    <img src="https://images.unsplash.com/photo-1520962915509-4157b8f8bd09?auto=format&fit=crop&w=1200&q=80" alt="Editorial fashion photography">
+                    <div class="project-copy">
+                        <h3>Expressive Fashion</h3>
+                        <p>Striking portraits created to elevate brand identity and editorial spread visuals.</p>
+                    </div>
+                </article>
+                <article class="project-card reveal" data-category="editorial">
+                    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80" alt="Destination photography">
+                    <div class="project-copy">
+                        <h3>Destination Moments</h3>
+                        <p>Ambient captures from travel, lifestyle, and immersive set designs.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="section-title reveal">
+                <span>Let’s create together</span>
+                <h2>Start your next visual project with Vision Unlocked.</h2>
+                <p class="section-intro">Tell us your idea and we'll design a photography plan that fits your brand, timeline, and budget.</p>
+            </div>
+            <div class="contact-grid">
+                <form class="contact-form reveal" id="contactForm">
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="name" placeholder="Your full name" required>
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="email" placeholder="you@domain.com" required>
+                    </label>
+                    <label>
+                        <span>Project type</span>
+                        <input type="text" name="project" placeholder="Campaign, product, portrait" required>
+                    </label>
+                    <label>
+                        <span>Message</span>
+                        <textarea name="message" placeholder="Tell us about your vision" required></textarea>
+                    </label>
+                    <button type="submit">Send inquiry</button>
+                </form>
+                <div class="contact-details reveal">
+                    <div class="contact-card">
+                        <h3>Studio & Booking</h3>
+                        <p>Reach out by email or phone for availability, pricing, and creative planning.</p>
+                        <strong>hello@visionunlocked.com</strong>
+                        <span>+1 555 019 6823</span>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Working hours</h3>
+                        <p>Flexible scheduling for morning and evening sessions. Weekend bookings available upon request.</p>
+                        <strong>Mon - Fri: 9am - 7pm</strong>
+                        <span>Sat: 10am - 5pm</span>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Location</h3>
+                        <p>Based in a creative studio with easy access to urban and natural backdrops.</p>
+                        <strong>Vision Unlocked Studio</strong>
+                        <span>123 Vision Avenue, Creative City</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Vision Unlocked. Crafted for modern brands and storytelling.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.project-card');
+        const revealItems = document.querySelectorAll('.reveal');
+        const contactForm = document.getElementById('contactForm');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        navItems.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+                projects.forEach(card => {
+                    const category = card.dataset.category;
+                    card.style.display = filter === 'all' || category === filter ? 'block' : 'none';
+                });
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.2,
+        });
+
+        revealItems.forEach(item => observer.observe(item));
+
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + window.innerHeight / 2;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const bottom = top + section.offsetHeight;
+                const id = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav-links a[href='#${id}']`);
+                if (scrollPos >= top && scrollPos < bottom) {
+                    navItems.forEach(link => link.classList.remove('active'));
+                    if (navLink) navLink.classList.add('active');
+                }
+            });
+        });
+
+        contactForm.addEventListener('submit', event => {
+            event.preventDefault();
+            const formData = new FormData(contactForm);
+            const values = Object.fromEntries(formData.entries());
+            alert(`Thanks ${values.name}! Your message has been sent. We will reply to ${values.email} soon.`);
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
