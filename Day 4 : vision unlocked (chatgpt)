@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vision Unlocked</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#0a0a0a;color:#fff}
+nav{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;padding:20px 5%;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);z-index:1000}
+nav a{color:#fff;text-decoration:none;margin:0 12px}
+.hero{height:100vh;background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600') center/cover;display:flex;align-items:center;justify-content:center;text-align:center}
+.overlay{background:rgba(0,0,0,.55);width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero h1{font-size:4rem}
+.btn{padding:12px 24px;background:#d4af37;color:#000;text-decoration:none;border-radius:30px;margin:10px;display:inline-block}
+section{padding:90px 8%}
+.cards,.gallery,.services{display:grid;gap:20px}
+.cards{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:#111;padding:20px;border-radius:12px}
+.gallery{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.gallery img{width:100%;height:260px;object-fit:cover;border-radius:10px;transition:.4s}
+.gallery img:hover{transform:scale(1.05)}
+.services{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.service{background:#111;padding:20px;border-radius:12px}
+.contact form{display:grid;gap:10px;max-width:600px}
+input,textarea{padding:12px;border:none;border-radius:8px}
+button{padding:12px;background:#d4af37;border:none;border-radius:8px}
+footer{text-align:center;padding:20px;background:#111}
+.reveal{opacity:0;transform:translateY(40px);transition:.8s}
+.reveal.active{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){.hero h1{font-size:3rem}}
+@media(max-width:768px){nav{flex-direction:column;gap:10px}.hero h1{font-size:2.4rem}}
+@media(max-width:480px){.hero h1{font-size:2rem}}
+@media(max-width:320px){.hero h1{font-size:1.6rem}}
+</style>
+</head>
+<body>
+
+<nav>
+<h2>Vision Unlocked</h2>
+<div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#services">Services</a>
+<a href="#explore">Explore</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<section class="hero" id="home">
+<div class="overlay">
+<h1 id="typing"></h1>
+<p>Professional Photography & Visual Storytelling</p>
+<div>
+<a class="btn" href="#portfolio">View Work</a>
+<a class="btn" href="#contact">Book Session</a>
+</div>
+</div>
+</section>
+
+<section id="about" class="reveal">
+<h2>About Vision Unlocked</h2>
+<p>We transform moments into timeless stories through weddings, portraits, commercial photography and events.</p>
+<div class="cards">
+<div class="card"><h3>500+</h3><p>Projects</p></div>
+<div class="card"><h3>300+</h3><p>Clients</p></div>
+<div class="card"><h3>7+</h3><p>Years</p></div>
+<div class="card"><h3>50+</h3><p>Awards</p></div>
+</div>
+</section>
+
+<section id="portfolio" class="reveal">
+<h2>Portfolio</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800">
+<img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=800">
+<img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?q=80&w=800">
+<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800">
+<img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=800">
+<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800">
+</div>
+</section>
+
+<section id="services" class="reveal">
+<h2>Services</h2>
+<div class="services">
+<div class="service">Wedding Photography</div>
+<div class="service">Portrait Photography</div>
+<div class="service">Event Coverage</div>
+<div class="service">Product Photography</div>
+<div class="service">Fashion Shoots</div>
+<div class="service">Drone Photography</div>
+</div>
+</section>
+
+<section id="explore" class="reveal">
+<h2>Explore</h2>
+<p>Discover featured projects, behind-the-scenes moments and creative visual experiences.</p>
+</section>
+
+<section id="contact" class="contact reveal">
+<h2>Contact Us</h2>
+<form id="form">
+<input type="text" placeholder="Name" required>
+<input type="email" placeholder="Email" required>
+<input type="tel" placeholder="Phone">
+<textarea placeholder="Message"></textarea>
+<button type="submit">Send Message</button>
+</form>
+</section>
+
+<footer>© 2026 Vision Unlocked. All Rights Reserved.</footer>
+
+<script>
+const text="Unlocking Stories Through Every Frame";
+let i=0;
+function type(){
+ if(i<text.length){
+   document.getElementById("typing").innerHTML+=text.charAt(i);
+   i++;
+   setTimeout(type,70);
+ }
+}
+type();
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{
+   if(e.isIntersecting)e.target.classList.add("active");
+ });
+});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+document.getElementById("form").addEventListener("submit",e=>{
+ e.preventDefault();
+ alert("Thank you! Your message has been sent.");
+});
+</script>
+</body>
+</html>
