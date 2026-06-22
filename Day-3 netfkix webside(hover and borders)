@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Webpage ❤️</title>
+    <link rel="stylesheet" href="index.css">
+    
+    <style>
+        body{
+           background: linear-gradient(to left,darkred,black, black,darkred,black,black, darkred);
+        }
+        h1{
+            color: ghostwhite;
+            text-align: center;
+            font-size: 200px;
+            position: relative;
+            z-index: 1;
+        }
+        h6{
+            color: ghostwhite;
+            font-size: 40px;
+            text-align: center;
+        }
+        .Mainimage{
+            transition: all 1s ease-in-out;
+            width: 36%;
+            height: 500px;
+            margin-left: 32%;
+            margin-top: -150px;
+            border: 2px silver solid;
+            border-radius: 50px;
+            position: relative;
+        }
+        body:hover .Mainimage{
+            margin-top: -250px;
+        }
+        h2{
+            color: ghostwhite;font-size: 50px; text-align: center; 
+        }
+        .Small{
+            width: 350px;
+            background-color: white;
+            text-align: center;
+            border-radius: 20px;
+              transition: all 0.5s ease-in-out;
+        }
+       .Small img{
+            width: 350px;
+            height: 250px;
+            margin-left: 0%;
+            margin-top: 0px;
+            border: 0px silver solid;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            position: relative;
+        }
+        .Small button{
+            width: 300px;
+            height: 50px;
+            font-size: large;
+            background-color: white;
+            color: rgb(0, 0, 0);
+            border: 0px solid white;
+            font-weight: bolder;
+        }
+        .Main{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .Small:hover{
+            transform:  translateY(-25px);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1> N E T F L I X </h1>
+    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5ldGZsaXh8ZW58MHx8MHx8fDA%3D" alt="Main image" class="Mainimage">
+    <h2>This Week Damaka</h2>
+    <div class="Main">
+        <div class="Small">
+        <img src="https://cdn.district.in/movies-assets/images/cinema/Karuppu-cover--3e431ab0-13cb-11f1-8c32-a5338e06444d.jpg" alt="">
+        <button>Subscription</button>
+    </div>
+    <div class="Small">
+        <img src="https://i.ytimg.com/vi/xkQS_TET5NI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC_V-zeaNlAvDL66b9jaJV-9Cadwg" alt="">
+        <button>Subscription</button>
+    </div>
+    <div class="Small">
+        <img src="https://images.augustman.com/wp-content/uploads/sites/3/2026/04/17114513/main-spider-man-brand-new-day.jpeg" alt="">
+        <button>Subscription</button>
+    </div>
+    <div class="Small">
+        <img src="https://assets-in.bmscdn.com/discovery-catalog/events/et00478890-rpenrjddmy-landscape.jpg" alt="">
+        <button>Subscription</button>
+    </div>
+    </div>
+    <h2>This Week Damaka</h2>
+    <div class="Main">
+        <div class="Small">
+        <img src="https://i.ytimg.com/vi/xJYoN-fX2j0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDosZQZvv30RDquBZ0F02U6wPbs6w" alt="">
+        <button>Subscription</button>
+    </div>
+    <div class="Small">
+        <img src="https://i.ytimg.com/vi/77TRc1mrhaE/maxresdefault.jpg" alt="">
+        <button>Subscription</button>
+    </div>
+    <div class="Small">
+        <img src="https://b.zmtcdn.com/data/edition_assets/17789139545623956.jpg" alt="">
+        <button>Subscription</button>
+    </div>
+    <div class="Small">
+        <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/medium/maa-inti-bangaaram-et00489559-1781853242.jpg" alt="">
+        <button>Subscription</button>
+    </div>
+    </div>
+    <h6>movies@netflix.com</h6>
+</body>
+
+</html>
