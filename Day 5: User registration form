@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body{
+            background-color: white;
+        }
+        .second{
+                position: relative;
+                width: 100vw;
+                height: 100vh;
+                background-color: blue;
+        }
+        h2{
+            color: black;
+        }
+        .s1{
+            position: absolute;
+            left: 25vw;
+            top: 20vh;
+            width: 40vw;
+            height: 75vh;
+            background-color: rgba(239, 140, 206, 0.5);
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            font-size: xx-large;
+            color: ghostwhite;
+            border-radius: 20px;
+            border: 6px solid rgba(190, 64, 179, 0.5);
+            transition: transform 0.2s ease;
+        }
+        .second:hover .s1{
+            transform: rotate(5deg) scale(1.05);
+        }
+        input{
+            display: block;
+            width: 500px;
+            height: 40px;
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            border: 6px solid rgba(190, 64, 179, 0.5);
+        }
+        button{
+            width: 510px;
+            height: 40px;
+            display: block;
+            font-size: large;
+            border-radius: 20px;
+            border: 6px solid rgba(190, 64, 179, 0.5);
+            background-color: rgb(62, 11, 216);
+            color: ghostwhite;
+        }
+        ::placeholder{
+            font-size: large;
+            color:black;
+            padding-left: 10px;
+        }
+        .Second img{
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="second">
+    <img src="https://wallpaperaccess.com/full/233596.jpg" alt="" style="width: 100vw;height: 100vh;object-fit: cover;">
+        <div class="s1">
+            <h2 color="black">Explore with us</h2>
+            <form>
+                <input type="text" placeholder="Enter Name">
+                <input type="email" placeholder="Enter Email">
+                <input type="text" placeholder="Enter Phone">
+                <input type="date" placeholder="Enter Date">
+                <button>Submit</button>
+            </form>
+            </div>
+    </div>
+
+    </body>
+    </html>
