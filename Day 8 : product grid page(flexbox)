@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background-color: #63c1ea;
+            gap: 20px;
+            padding: 20px;
+            height: 100vh;
+            grid-template-rows: 0.3fr 1fr 1fr 0.3fr;
+        }
+        .box {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            background-color: #f30d0d;
+            border-radius: 15px;
+        }
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .b1 {
+            grid-column: span 4;
+            text-align: center;
+            background-color: #eaeef0;
+            font-size: xx-large;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .b5{
+            grid-column: span 4;
+            text-align: center;
+            background-color: #eaeef0;
+            font-size: xx-large;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+      <div class="box b1"><h1>Shop online</h1></div>
+      <div class="box b2"><img src="https://th.bing.com/th/id/OIP.FIx3OXskCa2hbB3ggbsb9AHaEc?w=257&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 2"></div>
+      <div class="box b3"><img src="https://th.bing.com/th/id/OIP.FIx3OXskCa2hbB3ggbsb9AHaEc?w=257&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 3"></div>
+      <div class="box b4"><img src="https://th.bing.com/th/id/OIP.FIx3OXskCa2hbB3ggbsb9AHaEc?w=257&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 4"></div>
+      <div class="box b6"><img src="https://th.bing.com/th/id/OIP.FIx3OXskCa2hbB3ggbsb9AHaEc?w=257&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 2"></div>
+      <div class="box b7"><img src="https://th.bing.com/th/id/OIP.FIx3OXskCa2hbB3ggbsb9AHaEc?w=257&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 3"></div>
+      <div class="box b8"><img src="https://th.bing.com/th/id/OIP.FIx3OXskCa2hbB3ggbsb9AHaEc?w=257&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 4"></div>
+        <div class="box b9"><img src="https://th.bing.com/th/id/OIP.FIx3OXskCa2hbB3ggbsb9AHaEc?w=257&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 2"></div>
+      <div class="box b10"><img src="https://th.bing.com/th/id/OIP.FIx3OXskCa2hbB3ggbsb9AHaEc?w=257&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 3"></div>
+      <div class="box b5"><h2>shoponline@gmail.com</h2></div>
+     
+    </div>
+   
+</body>
+</html>
