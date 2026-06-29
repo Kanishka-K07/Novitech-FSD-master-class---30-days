@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .first {
+            background-color: lightslategray;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            padding: 30px;
+            min-height: 5vh;
+            
+        }
+        .second{
+            background-color: lightslategray;
+            font-size: xx-large;
+            text-align: center;
+            color: #f3f4f6;
+
+        }
+        .div {
+            background-color: lightslategray;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: x-large;
+            text-align: center;
+        }
+        .second h1{
+            margin:0;
+        }
+        .third{
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            gap:50px;
+            padding:50px;
+        }
+        .box{
+            border:3px solid lightgray;
+            border-radius: 10px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .box img{
+            width: 100px; 
+            height: 100px;
+            border:3px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .box button{
+            width:70%;
+            background-color: darkslategray;
+            font-size: larger;
+            border-radius: 10px;
+            color:#f3f4f6;
+
+        }
+        .fourth{
+            font-size: x-large;
+            text-align: center;
+            color: #f3f4f6;
+            background-color: lightslategray;
+        }
+        .fourth h2{
+            margin:0;
+        }
+
+        @media(max-width:500px) {
+            .first{
+                grid-template-columns: 1fr 1fr 1fr;
+                width: 100vw;
+
+
+
+            }
+            .second{
+                width:100vw;
+                font-size: 20px;
+                text-align: center;
+
+            }
+            .third{
+                grid-template-columns: 1fr 1fr;
+                width:100%;
+                
+
+            }
+            .fourth{
+                width:100%;
+                font-size: 20px;
+            }
+            .box{
+                width:80%;
+            }
+        }
+            @media(min-width:500px) and (max-width:800px){
+            .first{
+                grid-template-columns: 1fr 1fr;
+                width: 100vw;
+
+
+
+            }
+            .second{
+                width:10vw;
+                font-size: 20px;
+                text-align: center;
+
+            }
+            .third{
+                grid-template-columns: 1fr 1fr 1fr;
+                width:100%;
+               
+
+            }
+            .fourth{
+                width:100%;
+                font-size: 20px;
+            }
+            .box{
+                width:80%;
+            }
+            .first viv{
+                background-color: #c6d1e4;
+                color: black;
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="first">
+        <div class="div">Home</div>
+        <div class="div">Content</div>
+        <div class="div">About us</div>
+        <div class="div">Service</div>
+        <div class="div">sign in</div>
+    </div>
+    <div class="second">
+        <h1>Novianns perfume</h1>
+    </div>
+    <div class="third">
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+           <br></br>
+            <button>Book now</button>
+        </div>
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+             <br></br>
+            <button>Book now</button>
+        </div>
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+            <br></br>
+            <button>Book now</button>
+        </div>
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+             <br></br>
+            <button>Book now</button>
+        </div>
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+            <br></br>
+            <button>Book now</button>
+        </div>
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+           <br></br>
+            <button>Book now</button>
+        </div>
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+             <br></br>
+            <button>Book now</button>
+        </div>
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+            <br></br>
+            <button>Book now</button>
+        </div>
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+             <br></br>
+            <button>Book now</button>
+        </div>
+        <div class="box">
+            <h2>Perfume</h2>
+            <img src = "https://www.bing.com/th/id/OIP.DYHC0n1tVbypog_tKNpXiQHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt = "Images">
+            <br></br>
+            <button>Book now</button>
+        </div>
+    </div>
+   <div class="fourth">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla consequatur reprehenderit deleniti aperiam quis est ipsum ex delectus nam quas dicta, exercitationem incidunt dolore adipisci necessitatibus dolores voluptatem fugit hic.</p>
+        <h2>Perfume.in</h2>
+    </div>
+</body>
+</html>
