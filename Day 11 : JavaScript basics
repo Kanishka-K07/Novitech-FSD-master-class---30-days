@@ -1,0 +1,100 @@
+// program 1
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #text{
+            background-color: blue;
+            text-align: center;
+            color:white;
+            
+
+        }
+        #button1{
+            background-color: green;
+            text-align: center;
+            width:100px;
+            color:white;
+            border-radius: 10px;
+        }
+        #button2{
+            background-color: red;
+            text-align: center;
+            width:100px;
+            color:white;
+            border-radius: 10px;
+        }
+    </style>
+    <script src ="index.js"></script>
+</head>
+<body>
+   
+    <h1 id = "text">Is Javascript is easy ?</h1>
+    <button id = "button1">Yes</button>
+    <button id = "button2">No</button>
+</body>
+<script>
+    document.getElementById("button1").onclick = function(){
+        document.getElementById("text").innerHTML = "Yes Javascript is easy "
+    }
+    document.getElementById("button2").onclick = function(){
+        document.getElementById("text").innerHTML = "No Javascript is Not easy "
+    }
+</script>
+</html>
+
+
+//program 2
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #text{
+            background-color: rgb(5, 5, 6);
+            text-align: center;
+            color:rgb(231, 227, 227);
+            
+
+        }
+        #button1{
+            background-color: rgb(30, 27, 27);
+            text-align: center;
+            width:100px;
+            color:rgb(253, 251, 251);
+            border-radius: 10px;
+        }
+        #button2{
+            background-color: rgb(248, 242, 242);
+            text-align: center;
+            width:100px;
+            color:rgb(17, 13, 13);
+            border-radius: 10px;
+        }
+    </style>
+    <script src ="index.js"></script>
+</head>
+<body>
+   
+    <h1 id = "text">Lighting Mode</h1>
+    <button id = "button1">dark</button>
+    <button id = "button2">light</button>
+</body>
+<script>
+    document.getElementById("button1").onclick = function(){
+        document.getElementById("text").style.backgroundColor = "black";
+        document.getElementById("text").style.color = "white";
+    };
+    document.getElementById("button2").onclick = function(){
+        document.getElementById("text").style.backgroundColor = "lightgray";
+        document.getElementById("text").style.color = "black";
+    };
+</script>
+</html>
