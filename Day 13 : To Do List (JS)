@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(101, 101, 234);
+            text-align: center;
+            margin: 0;
+        }
+        .main{
+            width:50vw;
+            height:70vh;
+            background-color: rgb(239, 94, 152);
+            position:relative;
+            left:25vw;
+            top: 10vh;
+            font-size: x larger;
+            color:white;
+            text-align: center;
+        }
+        input{
+            width:60%;
+            height:40px;
+            padding:8px 12px;
+            border-radius: 20px;
+            border: 2px solid rgba(0,0,0,0.15);
+            font-size:16px;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+        button{
+            height:40px;
+            padding:0 18px;
+            border-radius: 20px;
+            background-color: rgb(56, 124, 234);
+            color:white;
+            border: none;
+            cursor: pointer;
+            vertical-align: middle;
+            margin-left:12px;
+        }
+        ::placeholder{
+           
+            font-size: large;
+            padding-left:30px;
+
+        }
+    .removeButton{
+     background-color: #e31b23;
+     color: white;
+     padding:8px 16px;
+     border-radius: 18px;
+     border: none;
+     cursor: pointer;
+     font-weight: 600;
+    }
+    .sub{
+     width:80%;
+     margin:12px auto;
+     padding:16px 20px;
+     color:aliceblue;
+     border-radius: 12px;
+     border: 2px solid rgba(0,0,0,0.25);
+     background-color: rgb(101, 101, 234);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     box-sizing: border-box;
+     position: relative;
+    }
+    .sub span{
+     text-align: left;
+     font-size:18px;
+     color: white;
+    }
+ #todolist{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 50vh;
+    padding: 20px;
+ }
+
+
+    </style>
+
+</head>
+<body>
+     <div class="main">
+        <h1>To Do List</h1>
+        <input type="text" id = "todoinput" placeholder="Enter a new task..." />
+        <button onclick="addToDo()">Add task</button>
+
+        <div id = "todolist">
+         
+          
+         </div>
+        </div>
+        </div>
+
+        <script>
+
+        
+            function addToDo(){
+                 let taskValue  = document.getElementById("todoinput").value;
+                 if(taskValue == ""){
+                  return;
+               }
+               let taskstore = document.createElement("div");  
+               taskstore.className = "sub";
+               let tasktext = document.createElement("span");
+               tasktext.innerText = taskValue;
+            
+            let removeButton = document.createElement("button");
+            removeButton.type = "button";
+            removeButton.textContent = "Remove";
+            removeButton.className = "removeButton";
+            removeButton.onclick = function(){
+                taskstore.remove();
+            };
+            
+            taskstore.appendChild(tasktext);
+            taskstore.appendChild(removeButton);
+
+            document.getElementById("todolist").appendChild(taskstore);
+            document.getElementById("todoinput").value = "";
+        }
+
+
+        </script>
+</body>
+</html>
