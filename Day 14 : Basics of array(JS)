@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Enter your name" id="name">
+    <button onclick="addName()">Add Name</button>
+   <h1 id = "container"></h1>
+     <script>
+    
+    let userName = [];
+    function addName(){
+        let name = document.getElementById("name").value;
+        userName.push(name);
+        document.getElementById("name").value = "";
+        document.getElementById("container").innerHTML = userName[userName.length - 1];
+       
+    }
+
+        let name1 = "Kanishka"; 
+        let name2 = "Kanishka";
+        let name3 = "Kanishka";
+        let name4 = "Kanishka";
+
+        let a = 5;
+        let b = 6;
+        
+
+        console.log(a+b);    // answer store in console(inside inspec= live server > rightclick>inspect>console)
+        document.write(a+b); // show output in live server
+        document.write("<h1>" + (a+b) + "</h1>"); // show output in live server with h1 tag
+        document.write(`<h1> ${a+b} </h1>`); // show output in live server with h1 tag using template literals
+        
+        
+
+        let data = [1,2,3,4,5] // array literal
+        let name = ["Kanishka","sam","John","Doe","Arun"] // array literal
+        let mixed = [[1,2,3],["Kanishka","sam","John","Doe","Arun"]]
+        
+        let numbers = new Array(1,2,3,4,5); // array constructor
+
+        data.push(6); // add element at the end of the array
+        console.log(data[3]); // access element at index 3
+        
+        console.log(data);
+        
+        data.pop(); // remove last element from the array
+        console.log(data);
+        
+        data.shift(); // remove first element from the array
+        console.log(data);
+        
+        data.unshift('hii'); // add element at the beginning of the array
+        console.log(data);
+        
+        console.log(data.length); // get the length of the array
+        
+        console.log(data.indexOf(3)); // get the index of the element
+
+     
+     
+     </script>
+</body>
+</html>
