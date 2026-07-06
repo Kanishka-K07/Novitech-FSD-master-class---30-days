@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         var rice = 10;
+//         var rice = 15;
+//         let sugar = 10;
+//         let sugar = 15;
+//         const r1 = rice;
+//         const r2 = sugar;
+
+//   function addvalue(a,b){
+//     return a+b;
+   
+//   }
+//     console.log(addvalue(10,50));
+//     const addNumber = (a,b) => a+b;
+//     console.log(addNumber(10,20));
+
+//     const printValue = () => console.log("hello world"); // function declaration
+//     printValue();                                        // function call
+
+   let array1 = [1,2,3,4,5,6,7,8,9];
+   let data1 = array1[4];
+   console.log(data1);
+
+   let [a,b,c,d,e,f,g] = array1;
+   console.log(a,b,c,d,e,f,g);    // narrow function 
+   console.log(c);
+
+   let array2 = [1,2,3,4,5]
+   let array3 = [6,7,8,9,10]
+
+   console.log(array2)
+
+   const newArray = [...array2,...array3,'t'];  // spread operator
+   console.log(newArray);
+ 
+   let [a,b,...rest] = array2;
+   console.log(a,b);  // rest operator
+   console.log(rest);
+
+
+    </script>
+</body>
+</html>
