@@ -1,0 +1,86 @@
+//App.js
+
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
+import File1 from './File1.jsx'
+import File2 from './File2.jsx'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <File1 />
+      <File2 />
+      <File1 />
+      <File2 />
+    </>
+  )
+}
+
+export default App
+
+//index.html
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+File1.jsx
+
+import React from 'react'
+
+function File1() {
+  return (
+    <>
+      <h1>File one</h1>
+    </>
+
+  )
+}
+
+export default File1
+
+//File2.jsx
+
+import React from 'react'
+
+function File2() {
+  return (
+    <div>
+      <h1>File two</h1>
+    </div>
+  )
+}
+
+export default File2
+
+//Main.jsx
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+
+
