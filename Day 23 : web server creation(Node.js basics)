@@ -1,0 +1,10 @@
+const http = require('http');
+
+const server = http.createServer((request,response) => {
+    response.write("Hello from server ");
+    response.end();
+});
+
+server.listen(3000,() => {             // node server.js for run node and ctrl + c = clear terminal,ctrl + ` = terminal vs code
+    console.log("Server is Running");
+});
