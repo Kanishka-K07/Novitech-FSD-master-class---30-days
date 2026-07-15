@@ -1,0 +1,27 @@
+const fs = require('fs');
+function createFile(){ // create file using node
+    fs.writeFile('note.txt', 'Hello from server', () => { console.log("File created")});
+}
+//createFile();
+
+function readFile(){
+    fs.readFile('note.txt', 'utf8',(error,data) => {
+        console.log(data);
+    });
+}
+ //readFile();
+
+function updateFile(){
+    fs.appendFile('node.txt','\nNew value added', () => {
+        console.log("File data updates");
+    });
+}
+//updateFile();
+
+function deleteFile(){
+    fs.unlink('node.txt',() => {
+        console.log('File deleted');
+    });
+}
+deleteFile();
+
