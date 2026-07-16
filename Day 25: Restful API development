@@ -1,0 +1,9 @@
+const http = require('http');
+const server = http.createServer((req,res) => {
+    if(req.method==='GET' && req.url === "/home"){
+        res.write("Welcome Home Client");
+        res.end();
+    }
+});
+server.listen(3000,() => console.log("Server is Running")) //localhost 3000/home to browser 
+
