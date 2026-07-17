@@ -1,0 +1,7 @@
+const express = require('express');
+const app = express();
+app.get('/home',(req,res) => {
+    res.send("Welcome Home Client")
+});
+app.listen(3000,()=>console.log("Server Running"))     // op:node backend.js 
+                                                      // type localhost 3000/home in edge to see output
