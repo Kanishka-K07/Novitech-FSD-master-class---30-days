@@ -1,0 +1,32 @@
+// frontend for an registration form
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <div className="page">
+      <form className="registration-form" action="http://localhost:3000/login" method='POST'>
+        <input type="text" name="username" placeholder='Email here'/>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  )
+}
+
+export default App 
+
+// backend for an registration app
+const express = require("express");
+const cors = require('cors');
+//const app = express();
+app.use(express.urlencoded({extended:"true"}))
+app.use(cors());
+app.post('/login',(req,res)=>{
+    let realdata = "12345678";
+   let userdata = req.body.username;
+   if(userdata == realdata){
+    res.send("Login successfull")
+   } else {
+    res.send("Invalid ");
+   }
+})
+app.listen(3000,()=>console.log("Server Running"));
